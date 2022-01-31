@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <!--
+      JavaScript 6th Edition
+      Chapter 3
+      Hands-on Project 3-4
+
+      Author: Gerardo Aguirre
+      Date:   01/30/2022
+
+      Filename: 3_4_index.html
+   -->
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+   <title>Hands-on Project 3-4</title>
+   <link rel="stylesheet" href="styles.css" />
+   <script src="modernizr.custom.05819.js"></script>
+</head>
+
+<body>
+   <header>
+      <h1>
+         Hands-on Project 3-4
+      </h1>
+   </header>
+
+   <article>
+      <div id="results">
+          <ul>
+             <li id="item1"></li>
+             <li id="item2"></li>
+             <li id="item3"></li>
+             <li id="item4"></li>
+             <li id="item5"></li>
+          </ul>
+          <p id="resultsExpl"></p>
+      </div>
+      <form>
+          <fieldset>
+            <label for="toolBox" id="placeLabel">
+              Type the name of a tool, then click Submit:
+            </label>
+            <input type="text" id="toolBox" />
+          </fieldset>
+          <fieldset>
+            <button type="button" id="button" onclick= "processInput()">Submit</button>
+          </fieldset>
+      </form>
+   </article>
+   <script>
+		var i = 1;
+		var listItem = "";
+		
+		function processInput(){
+		//Here we initialize the counter at 1 and look for the element id that matches the ocunter number to add the tool name that the user is inputting in the toolbox textbox
+			if (i <= 5){
+				listItem = "item" + i;
+				document.getElementById(listItem).innerHTML = document.getElementById("toolBox").value;
+				document.getElementById("toolBox").value = "";
+				
+				if (i == 5){
+					//Once the counter has reached 5 we show "thank you for your suggestions"
+					document.getElementById("resultsExpl").innerHTML = "Thanks for your suggestions";
+				}
+				//Lastly we increment the counter by one at the end of the function so we keep track of how many tools ahve been suggested
+				i++
+			}
+		}
+	</script>
+</body>
+</html>

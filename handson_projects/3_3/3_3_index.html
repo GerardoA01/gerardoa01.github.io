@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <!--
+      JavaScript 6th Edition
+      Chapter 3
+      Hands-on Project 3-3
+
+      Author: Gerardo Aguirre
+      Date:   01/29/2022
+
+      Filename: 3_3_index.html
+   -->
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+   <title>Hands-on Project 3-3</title>
+   <link rel="stylesheet" href="styles.css" />
+   <script src="modernizr.custom.05819.js"></script>
+</head>
+
+<body>
+   <header>
+      <h1>
+         Hands-on Project 3-3
+      </h1>
+   </header>
+
+   <article>
+      <h2>Scouting Locations</h2>
+      <div id="results">
+          <ul>
+             <li id="item1"></li>
+             <li id="item2"></li>
+             <li id="item3"></li>
+             <li id="item4"></li>
+             <li id="item5"></li>
+          </ul>
+      </div>
+   </article>
+   <script>
+		var places = ["Paris", "London", "Rome", "Berlin", "Washington"];
+		
+		function processPlaces(){
+			//Below is the for code that will use counter "i" to go through every item in the array in order to add them
+			for (var i = 0; i < 5; i++){
+				var listItem = "item" + (i + 1); //We add +1 to the counter to get the proper element as the ids do not start with 0
+				document.getElementById(listItem).innerHTML = places[i];
+			}
+		}
+		//Here we check for event listener load and run our function if it is there, otherwise we attach the "on load" in order to run the function
+		if(window.addEventListener){
+			window.addEventListener("load", processPlaces, false);
+		} else if (window.attachEvent){
+			window.attachEvent("onload", processPlaces);
+		}
+		
+   </script>
+   
+</body>
+</html>
